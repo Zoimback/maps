@@ -27,16 +27,16 @@ def stop():
     pwm.stop()
     GPIO.cleanup()
 
-def rigth(int:seconds,intensidad):
+def rigth(float:seconds):
 #Giro a la derecha, paramentros --> segundos(giro), intensidad()    
     try:
         GPIO.output(IN1, GPIO.HIGH)
         GPIO.output(IN2, GPIO.LOW)
-        pwm.ChangeDutyCycle(intensidad)
+        pwm.ChangeDutyCycle(80)
         time.sleep(seconds)
-        return(print("Right"))
+        return("Right")
     except Exception as e:
-        return(print("ERROR RIGHT --> " + str(e)))
+        return("ERROR RIGHT --> " + str(e))
     pwm.ChangeDutyCycle(0)
 
 def left(int:seconds):
@@ -46,9 +46,9 @@ def left(int:seconds):
         GPIO.output(IN2, GPIO.LOW)
         pwm.ChangeDutyCycle(10)
         time.sleep(seconds)
-        return(print("Left"))
+        return("Left")
     except Exception as e:
-        return(print("ERROR LEFT --> " + str(e)))
+        return("ERROR LEFT --> " + str(e))
     pwm.ChangeDutyCycle(0)
 
 

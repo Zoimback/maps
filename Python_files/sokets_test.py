@@ -1,19 +1,10 @@
 import socket
 import sys
 sys.path.append("/home/alex/Scripts/py-maps")
-import points
+import methods_motor
 
 
-def responses():
-    # Abre el archivo en modo lectura
-    with open('rspuesta.txt', 'r') as archivo:
-    # Lee todo el contenido del archivo
-        contenido = archivo.read()
-
-# Imprime el contenido del archivo
-    return contenido
-
-
+methods.start()
 try:
     # Configura el servidor
 
@@ -41,7 +32,9 @@ try:
         if not data:
             break
         print(f"Recibido: {data.decode()}")
-        response = points.inicio()
+        response = methods.right(0.2)
+
+
         client_socket.send(response.encode())
 except Exception as e:
 
